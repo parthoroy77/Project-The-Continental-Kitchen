@@ -1,0 +1,7 @@
+.banner-container{
+    height: 100vh;
+    background-image: url('../../assets/banner/63629535_2ea29b.jpg');
+    background-size: contain;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
