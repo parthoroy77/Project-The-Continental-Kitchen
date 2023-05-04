@@ -5,6 +5,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { AuthContext } from '../../../providers/AuthProvider';
+import { Toaster, toast } from 'react-hot-toast';
 const Login = () => {
     const { user, logInUser, googleLogin, gitHubLogin } = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false)
@@ -16,16 +17,32 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const confirm = form.password.value;
+        const confirm = form.confirm.value;
+        console.log(password, confirm);
+        if (password != confirm) {
+            return toast.error('Please Enter Same Password In Both Field');
+        }
+        else if (password.length < 8) {
+            return toast.error('Password is too short')
+        }
+        else if (/(?=.*?[A-Z])/.test(password)) {
+            return toast.error('Password must have 1 uppercase character')
+        }
+        else if (/(?=.*?[0-9])/.test(password)){
+            return toast.error('Password must have 1 number')
+        }
+        else if (/(?=.*? [^\w\s])/.test(password)) {
+            return toast.error('Password must have 1 special character')
+        }
         logInUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                toast.success('Login Success full')
                 navigate(from, { replace: true })
                 form.reset()
             })
             .catch(error => {
-            console.log(error);
+            toast.error(error.message);
         })
     }
     const handleGoogleLogin = () => {

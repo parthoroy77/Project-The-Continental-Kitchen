@@ -5,8 +5,9 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Register.css'
 import { AuthContext } from '../../../providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 const Register = () => {
-    const [error, setError] = useState('')
+    const [showPass, setShowPass] = useState(false)
     const { user, createUser, profileUpdate } = useContext(AuthContext);
     const handleRegister = (e) => {
         e.preventDefault();
@@ -17,16 +18,34 @@ const Register = () => {
         const confirm = form.confirm.value;
         const password = form.password.value;
         console.log(name, email, photoUrl, confirm, password);
+        if (password != confirm) {
+            return toast.error('Please Enter Same Password In Both Field');
+        }
+        else if (password.length < 8) {
+            return toast.error('Password is too short')
+        }
+        else if (/"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/.test(password)) {
+            console.log(password);
+            return toast.error('Password must have 1 uppercase, 1 lowercase, 1 digit and 1 special character')
+        }
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
-                console.log(createdUser);
+                toast.success('User Created Successfully')
                 profileUpdate(name, photoUrl).then(result => { }).catch(error => console.error(error))
                 form.reset()
             })
             .catch(error => {
-            console.log(error.message);
+            toast.error(error.message);
         })
+    }
+    const handleShow = (e) => {
+        if (e.target.checked) {
+            setShowPass(true)
+        }
+        else {
+            setShowPass(false)
+        }
     }
     return (
         <div>
@@ -47,13 +66,15 @@ const Register = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" />
+                    <Form.Control type={showPass ? 'text' : 'password'} name='password' placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" name='confirm' placeholder="Password" />
+                    <Form.Control type={showPass ? 'text' : 'password'} name='confirm' placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Group className="mb-3"
+                    onClick={handleShow}
+                    controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Show Password" />
                 </Form.Group>
                 <Button variant="primary" className='w-100' type="submit">
