@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import icon from '../../assets/icon/pngwing.com.png'
 import Recipe from '../Recipe/Recipe';
 import './Recipes.css'
+import { AuthContext } from '../../providers/AuthProvider';
 const Recipes = ({ data }) => {
     
     return (
