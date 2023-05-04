@@ -91,7 +91,7 @@ const Login = () => {
                 </Form.Group>
 
                 <Button variant="primary" className='w-100' type="submit">
-                    Submit
+                    Login
                 </Button>
                 <Form.Text>
                     Don't Have Account? <Link to='/register' className='text-center text-decoration-none'>Please Register </Link>

@@ -78,7 +78,7 @@ const Register = () => {
                     <Form.Check type="checkbox" label="Show Password" />
                 </Form.Group>
                 <Button variant="primary" className='w-100' type="submit">
-                    Submit
+                    Register
                 </Button>
                 <Form.Text>
                     Already Have Account? <Link to='/login' className='text-center text-decoration-none'>Please Login </Link>
