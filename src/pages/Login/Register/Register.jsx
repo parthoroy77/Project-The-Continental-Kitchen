@@ -2,12 +2,13 @@ import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 import { AuthContext } from '../../../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
 const Register = () => {
-    const [showPass, setShowPass] = useState(false)
+    const [showPass, setShowPass] = useState(false);
+    const navigate = useNavigate()
     const { user, createUser, profileUpdate } = useContext(AuthContext);
     const handleRegister = (e) => {
         e.preventDefault();
@@ -17,23 +18,22 @@ const Register = () => {
         const photoUrl = form.photo.value;
         const confirm = form.confirm.value;
         const password = form.password.value;
-        console.log(name, email, photoUrl, confirm, password);
         if (password != confirm) {
             return toast.error('Please Enter Same Password In Both Field');
         }
-        else if (password.length < 8) {
+        else if (password.length < 6) {
             return toast.error('Password is too short')
         }
         else if (/"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/.test(password)) {
-            console.log(password);
             return toast.error('Password must have 1 uppercase, 1 lowercase, 1 digit and 1 special character')
         }
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
                 toast.success('User Created Successfully')
-                profileUpdate(name, photoUrl).then(result => { }).catch(error => console.error(error))
+                profileUpdate(name, photoUrl).then(result => { }).catch(error => toast.error(error.message))
                 form.reset()
+                navigate('/login')
             })
             .catch(error => {
             toast.error(error.message);

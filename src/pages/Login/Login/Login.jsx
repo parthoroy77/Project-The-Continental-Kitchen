@@ -18,21 +18,14 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
-        console.log(password, confirm);
         if (password != confirm) {
             return toast.error('Please Enter Same Password In Both Field');
         }
-        else if (password.length < 8) {
+        else if (password.length < 6) {
             return toast.error('Password is too short')
         }
-        else if (/(?=.*?[A-Z])/.test(password)) {
-            return toast.error('Password must have 1 uppercase character')
-        }
-        else if (/(?=.*?[0-9])/.test(password)){
-            return toast.error('Password must have 1 number')
-        }
-        else if (/(?=.*? [^\w\s])/.test(password)) {
-            return toast.error('Password must have 1 special character')
+        else if (/"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/.test(password)) {
+            return toast.error('Password must have 1 uppercase, 1 lowercase, 1 digit and 1 special character')
         }
         logInUser(email, password)
             .then(result => {

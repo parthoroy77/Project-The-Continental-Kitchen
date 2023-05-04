@@ -22,8 +22,8 @@ const router = createBrowserRouter([
             {
                 path: '/chef',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:4523/data')
-            },  
+                loader: () => fetch('https://the-continental-kitchen-server.vercel.app/data')
+            },
             {
                 path: '/login',
                 element: <Login></Login>
@@ -39,11 +39,11 @@ const router = createBrowserRouter([
             {
                 path: '/chef/:id',
                 element: <PrivateRouter><ChefDetails></ChefDetails></PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:4523/data/${params.id}`)
+                loader: ({ params }) => fetch(`https://the-continental-kitchen-server.vercel.app/data/${params.id}`)
             }
         ]
     },
-    
+
 ])
 
 

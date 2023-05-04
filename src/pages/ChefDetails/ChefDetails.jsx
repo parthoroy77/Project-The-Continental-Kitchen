@@ -6,7 +6,6 @@ import './ChefDetails.css'
 import ChefRecipe from '../../components/ChefRecipe/ChefRecipe';
 const ChefDetails = () => {
     const chefData = useLoaderData()
-    console.log(chefData);
     const { chefName, chefPicture, chefDescription, chefRecipes, cuisineSpecialty, likes, id, numberOfRecipes, yearsOfExperience } = chefData;
     return (
         <div>
