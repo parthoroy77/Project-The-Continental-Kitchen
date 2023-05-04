@@ -3,6 +3,8 @@ import { FaArrowRight } from 'react-icons/fa';
 import icon1 from '../../assets/icon/icon1.png'
 import './Banner.css'
 import { Container } from 'react-bootstrap';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 const Banner = () => {
     return (
         <div className='banner-container'>
@@ -18,7 +20,7 @@ const Banner = () => {
                      </button>
             </div>
             <div className=' text-center px-3'>
-                <img src={icon1} className='banner-img'   alt="" />
+                <img src={icon1} className='banner-img' alt="" />
             </div>
         </div>
     );

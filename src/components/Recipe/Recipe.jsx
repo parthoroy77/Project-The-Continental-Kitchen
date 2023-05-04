@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { FaArrowRight } from 'react-icons/fa';
+import LazyLoad from 'react-lazyload';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+
 
 const Recipe = ({ chef }) => {
+    
     const { chefName, id, chefPicture, chefDescription, cuisineSpecialty, yearsOfExperience, numberOfRecipes, likes } = chef;
     return (
         <div>
             <Card >
-                <Card.Img variant="top" src={chefPicture} />
+                <LazyLoad height={200}>
+                    <Card.Img variant="top" src={chefPicture} />
+                </LazyLoad>
                 <Card.Body>
                     <Card.Title className='fs-4 fw-bold'>{chefName}</Card.Title>
                     <hr />
