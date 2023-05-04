@@ -13,7 +13,7 @@ const Reservation = () => {
                 <img src={icon} width={60} alt="" />
                 <hr />
             </div>
-            <div className='booking-container'>
+            <div className='booking-container' id='reserve'>
                 <Form className='px-5 bg-dark text-light py-5 rounded shadow'>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Name</Form.Label>
