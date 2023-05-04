@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { toast } from 'react-hot-toast';
 import { FaHeart } from 'react-icons/fa';
 
 const ChefRecipe = ({ recipe }) => {
+    const [clicked,setClicked] = useState(false)
     const { recipeName, cookingMethod, ratings, ingredients, recipeInstructions } = recipe
+    const handleFavorite = () => {
+        setClicked(true);
+        toast.success('Added On Favorite')
+    }
     return (
         <div>
             <Card border="secondary">
@@ -19,7 +25,7 @@ const ChefRecipe = ({ recipe }) => {
                     <Card.Text>
                         Ratings: <span className='fw-semibold'>{ratings}</span>
                     </Card.Text>
-                        <Button variant='warning'>
+                        <Button disabled={clicked} variant='warning' onClick={handleFavorite}>
                         <FaHeart style={{ fontSize: '25px', color:'white' }}></FaHeart>
                         </Button>
                 </Card.Body>
