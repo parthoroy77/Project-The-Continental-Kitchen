@@ -1,7 +1,23 @@
 .banner-container{
-    height: 100vh;
-    background-image: url('../../assets/banner/63629535_2ea29b.jpg');
-    background-size: contain;
-    object-fit: contain;
-    background-repeat: no-repeat;
+    background-image: url('../../assets/banner/63629535_478bd3.jpg'), linear-gradient(180deg, rgba(1, 1, 31, 0.669), rgba(0, 0, 0, 0.751));
+    background-blend-mode: multiply;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 40px;
+}
+
+.banner-img{
+    width: 550px;
+
+}
+
+@media screen and (max-width: 560px) {
+    .banner-container {
+        flex-direction: column;
+        padding: 40px 0;
+    }
+    .banner-img{
+        width: 100%;
+    }
 }

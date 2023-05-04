@@ -8,8 +8,8 @@ const NavigationBar = () => {
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg='warning' variant='light'>
-                <Container className='py-2 '>
-                    <Link className='text-black fst-italic text-decoration-none fw-bold fs-4' to="/">The Continental Kitchen</Link>
+                <Container className='py-3 '>
+                    <Link className='text-black fst-italic text-decoration-none fw-bold fs-5' to="/">The Continental Kitchen</Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto d-flex align-items-center">
