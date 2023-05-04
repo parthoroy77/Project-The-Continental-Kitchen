@@ -2,6 +2,7 @@ import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import icon1 from '../../assets/icon/icon1.png'
 import './Banner.css'
+import { Container } from 'react-bootstrap';
 const Banner = () => {
     return (
         <div className='banner-container'>
@@ -12,7 +13,7 @@ const Banner = () => {
                 <p className='text-light fw-semibold fs-5'>
                     Life is too short to settle for mediocre food. That's why at restaurant, we're committed to bringing you the very best in culinary excellence. Whether you're in the mood for something savory, sweet, spicy, or somewhere in between, our expert chefs have crafted a menu that's sure to delight even the most discerning palates.
                 </p>
-                <button className='btn fw-bold shadow btn-warning text-light d-flex align-items-center gap-2'>
+                <button className='btn fw-bold shadow btn-warning text-danger fs-5 d-flex align-items-center gap-2'>
                    Reserve Now <FaArrowRight className='text-danger'></FaArrowRight>
                      </button>
             </div>
