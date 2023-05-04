@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Recipe = ({ chef }) => {
     const { chefName, id, chefPicture, chefDescription, cuisineSpecialty, yearsOfExperience, numberOfRecipes, likes } = chef;
@@ -23,7 +24,9 @@ const Recipe = ({ chef }) => {
                     <ListGroup.Item className='text-secondary fw-semibold'>Likes: {likes}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body >
-                    <button className='btn btn-warning d-flex align-items-center gap-2 '>View Details <FaArrowRight></FaArrowRight></button>
+                    <Link to={`/chef/:${id}`} className='text-decoration-none text-black'>
+                        <button className='btn btn-warning d-flex align-items-center gap-2 '>View Details <FaArrowRight></FaArrowRight></button>
+                    </Link>
                 </Card.Body>
             </Card>
         </div>
