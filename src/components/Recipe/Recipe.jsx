@@ -24,7 +24,7 @@ const Recipe = ({ chef }) => {
                     <ListGroup.Item className='text-secondary fw-semibold'>Likes: {likes}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body >
-                    <Link to={`/chef/:${id}`} className='text-decoration-none text-black'>
+                    <Link to={`/chef/${id}`} className='text-decoration-none text-black'>
                         <button className='btn btn-warning d-flex align-items-center gap-2 '>View Details <FaArrowRight></FaArrowRight></button>
                     </Link>
                 </Card.Body>

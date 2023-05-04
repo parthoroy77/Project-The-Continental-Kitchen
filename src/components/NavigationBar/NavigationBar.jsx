@@ -13,7 +13,7 @@ const NavigationBar = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto d-flex align-items-center">
-                            <Link className='me-4 text-secondary text-decoration-none fw-semibold' to="/">Home</Link>
+                            <Link className='me-4 text-secondary text-decoration-none fw-semibold' to="/chef">Home</Link>
                             <Link className='me-4 text-secondary text-decoration-none fw-semibold' to="/blog">Blogs</Link>
                             <Link className='me-4 text-secondary text-decoration-none fw-semibold' to="/login">Login</Link>
                             <Link className='text-secondary text-decoration-none fw-semibold' to="/register">Register</Link>

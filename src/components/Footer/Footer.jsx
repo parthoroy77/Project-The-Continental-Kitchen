@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='bg-black text-light py-5 px-4'>
+        <div className='bg-black position-sticky top-100 text-light py-5 px-4'
+        >
             <Container>
                 <Row>
                     <Col md={3}>
