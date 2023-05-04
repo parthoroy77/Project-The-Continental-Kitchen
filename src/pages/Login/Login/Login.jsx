@@ -1,12 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { AuthContext } from '../../../providers/AuthProvider';
 const Login = () => {
-    const { user, logInUser, googleLogin, gitHubLogin } = useContext(AuthContext)
+    const { user, logInUser, googleLogin, gitHubLogin } = useContext(AuthContext);
+    const [showPass, setShowPass] = useState(false)
+    const location = useLocation();
+    const navigate = useNavigate()
+    const from = location?.state?.from?.pathname || '/chef';
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -17,6 +21,8 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true })
+                form.reset()
             })
             .catch(error => {
             console.log(error);
@@ -27,6 +33,7 @@ const Login = () => {
             .then(result => {
                 const googleUser = result.user;
                 console.log(googleUser);
+                navigate(from, { replace: true })
             })
             .catch(error => {
             console.log(error.message);
@@ -37,10 +44,19 @@ const Login = () => {
             .then(result => {
                 const githubUser = result.user;
                 console.log(githubUser);
+                navigate(from, { replace: true })
             })
             .catch(error => {
             console.log(error.message);
         })
+    }
+    const handleShow = (e) => {
+        if (e.target.checked) {
+            setShowPass(true)
+        }
+        else {
+            setShowPass(false)
+        }
     }
     return (
         <div className=''>
@@ -52,13 +68,15 @@ const Login = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" required name='password' placeholder="Password" />
+                    <Form.Control type={showPass ? 'text': 'password'} required name='password' placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" name='confirm' required placeholder="Password" />
+                    <Form.Control type={showPass ? 'text' : 'password'} name='confirm' required placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Group className="mb-3"
+                    onClick={handleShow}
+                    controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Show Password" />
                 </Form.Group>
 
