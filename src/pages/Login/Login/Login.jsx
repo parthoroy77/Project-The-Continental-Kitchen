@@ -37,7 +37,7 @@ const Login = () => {
         logInUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                toast.success('Login Success full')
+                toast.success('Login Successfully')
                 navigate(from, { replace: true })
                 form.reset()
             })
@@ -49,22 +49,22 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const googleUser = result.user;
-                console.log(googleUser);
+                toast.success('Login Successfully')
                 navigate(from, { replace: true })
             })
             .catch(error => {
-            console.log(error.message);
+                toast.error(error.message);
         })
     }
     const handleGitHubLogin = () => {
         gitHubLogin()
             .then(result => {
                 const githubUser = result.user;
-                console.log(githubUser);
+                toast.success('Login Successfully')
                 navigate(from, { replace: true })
             })
             .catch(error => {
-            console.log(error.message);
+            toast.error(error.message);
         })
     }
     const handleShow = (e) => {
