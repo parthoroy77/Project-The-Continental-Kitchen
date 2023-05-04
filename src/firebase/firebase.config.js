@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDcLVpUvRQMUdUXsndw3npmATBdeF5uLFg",
-  authDomain: "the-continental-kitchen-ecd8f.firebaseapp.com",
-  projectId: "the-continental-kitchen-ecd8f",
-  storageBucket: "the-continental-kitchen-ecd8f.appspot.com",
-  messagingSenderId: "959003026126",
-  appId: "1:959003026126:web:12f4a3ba72c96f528fa69f",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
