@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import icon from '../../assets/icon/icon1.png'
 import { Container } from 'react-bootstrap';
 import delivery from '../../assets/icon/delivery.png'
