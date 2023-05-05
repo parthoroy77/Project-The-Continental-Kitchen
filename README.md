@@ -6,6 +6,9 @@
 * We can there if we log in. If we don't login we will be redirect to login page 
 * If we have already account we can login or we can register by going to register route in the login page or navbar
 * If we register we can login now and we will be redirect where we are in the first
+* If we are logged in user profile photo will be show on navbar and login register button will be hidden and logout button will be visible
+* We can see user name by hovering on user profile and if we click on profile a modal will be open.
+* In the modal we can update our name and profile image
 * In the website there are showed our service after the chef's section
 * After the service section there are a booking form we can reserve for our future days
 * At last we have a footer section in the bottom

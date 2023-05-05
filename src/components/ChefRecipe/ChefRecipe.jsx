@@ -11,7 +11,6 @@ const ChefRecipe = ({ recipe }) => {
         setClicked(true);
         toast.success('Added On Favorite')
     }
-    console.log(recipe);
     return (
         <div>
             <Card border="secondary">
