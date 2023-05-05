@@ -2,8 +2,7 @@ import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import icon1 from '../../assets/icon/icon1.png'
 import './Banner.css'
-import { Container } from 'react-bootstrap';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import LazyLoad from 'react-lazyload';
 
 const Banner = () => {
     return (
@@ -16,11 +15,13 @@ const Banner = () => {
                     Life is too short to settle for mediocre food. That's why at restaurant, we're committed to bringing you the very best in culinary excellence. Whether you're in the mood for something savory, sweet, spicy, or somewhere in between, our expert chefs have crafted a menu that's sure to delight even the most discerning palates.
                 </p>
                 <button className='btn fw-bold shadow btn-warning text-danger fs-5 d-flex align-items-center gap-2'>
-                   Reserve Now <FaArrowRight className='text-danger'></FaArrowRight>
-                     </button>
+                    Reserve Now <FaArrowRight className='text-danger'></FaArrowRight>
+                </button>
             </div>
             <div className=' text-center px-3'>
-                <img src={icon1} className='banner-img' alt="" />
+                <LazyLoad>
+                    <img src={icon1} className='banner-img' alt="" />
+                </LazyLoad>
             </div>
         </div>
     );

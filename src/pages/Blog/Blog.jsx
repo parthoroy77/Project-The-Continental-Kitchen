@@ -7,7 +7,7 @@ const ref = React.createRef()
 const Blog = () => {
     return (
         <div className='mt-2'>
-            
+
             <h2 className='text-center'>Blogs</h2>
             <div className='my-10 mx-auto'>
                 <h3 className='text-center'>

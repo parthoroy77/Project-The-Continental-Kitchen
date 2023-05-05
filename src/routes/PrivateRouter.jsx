@@ -5,7 +5,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 const PrivateRouter = ({ children }) => {
     const { user, loader } = useContext(AuthContext);
     if (loader) {
-        return (<div className='d-flex justify-content-center align-content-center' style={{height: '300px'}}>
+        return (<div className='d-flex justify-content-center align-content-center' style={{ height: '300px' }}>
             <div className='mt-5'>
                 <ClipLoader
                     className='text-center mt-5'
@@ -21,7 +21,7 @@ const PrivateRouter = ({ children }) => {
         return children;
     }
     const location = useLocation()
-    return <Navigate to='/login' state={{from: location}}></Navigate>
+    return <Navigate to='/login' state={{ from: location }}></Navigate>
 };
 
 export default PrivateRouter;

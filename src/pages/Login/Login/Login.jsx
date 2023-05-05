@@ -35,8 +35,8 @@ const Login = () => {
                 form.reset()
             })
             .catch(error => {
-            toast.error(error.message);
-        })
+                toast.error(error.message);
+            })
     }
     const handleGoogleLogin = () => {
         googleLogin()
@@ -47,7 +47,7 @@ const Login = () => {
             })
             .catch(error => {
                 toast.error(error.message);
-        })
+            })
     }
     const handleGitHubLogin = () => {
         gitHubLogin()
@@ -57,8 +57,8 @@ const Login = () => {
                 navigate(from, { replace: true })
             })
             .catch(error => {
-            toast.error(error.message);
-        })
+                toast.error(error.message);
+            })
     }
     const handleShow = (e) => {
         if (e.target.checked) {
@@ -78,7 +78,7 @@ const Login = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type={showPass ? 'text': 'password'} required name='password' placeholder="Password" />
+                    <Form.Control type={showPass ? 'text' : 'password'} required name='password' placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                     <Form.Label>Confirm Password</Form.Label>

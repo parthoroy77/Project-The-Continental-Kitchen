@@ -2,13 +2,17 @@ import React from 'react';
 import error from '../../assets/banner/404.jpg'
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazyload';
+
+
 const ErrorPage = () => {
     return (
-
         <div className='d-flex align-content-center' style={{ minHeight: '100vh' }}>
             <div>
                 <div className='text-center'>
-                    <img src={error} className='w-50' alt="" />
+                    <LazyLoad>
+                        <img src={error} className='w-50' alt="" />
+                    </LazyLoad>
                 </div>
                 <div className='text-center'>
                     <h1 className='fw-bold' style={{ fontSize: '60px' }}>OOPS!!! PAGE NOT FOUND</h1>

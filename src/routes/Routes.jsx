@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path: '/chef',
                 element: <Home></Home>,
-                loader: () => fetch('https://the-continental-kitchen-server.vercel.app/data')
+                loader: () => fetch('https://the-continental-kitchen-server-parthoroy77.vercel.app/data')
             },
             {
                 path: '/login',
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: '/chef/:id',
                 element: <PrivateRouter><ChefDetails></ChefDetails></PrivateRouter>,
-                loader: ({ params }) => fetch(`https://the-continental-kitchen-server.vercel.app/data/${params.id}`)
+                loader: ({ params }) => fetch(`https://the-continental-kitchen-server-parthoroy77.vercel.app/data/${params.id}`)
             }
         ]
     },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Navbar } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -49,7 +49,7 @@ const Footer = () => {
                     <Col md={4}>
                         <div>
                             <h5>Subscribe Now</h5>
-                            <input type="email" className='w-75 rounded' style={{height: '40px'}} name="email" id="" />
+                            <input type="email" className='w-75 rounded' style={{ height: '40px' }} name="email" id="" />
                             <button className='btn btn-warning w-75 my-2'>Subscribe</button>
                         </div>
                     </Col>

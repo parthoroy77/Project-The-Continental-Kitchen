@@ -4,9 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './ChefDetails.css'
 import ChefRecipe from '../../components/ChefRecipe/ChefRecipe';
+
+
 const ChefDetails = () => {
     const chefData = useLoaderData()
     const { chefName, chefPicture, chefDescription, chefRecipes, cuisineSpecialty, likes, id, numberOfRecipes, yearsOfExperience } = chefData;
+    
     return (
         <div>
             <div className='py-5 chef-banner'>
@@ -14,16 +17,16 @@ const ChefDetails = () => {
                     <Card.Body>
                         <Card.Title className=' fs-2 fw-bold'> {chefName}</Card.Title>
                         <Card.Text className='ms-3 my-3 fw-semibold text-secondary'>
-                            <span className='' style={{color:'black' , fontSize: '20px'}}>Description: </span>{chefDescription}
+                            <span className='' style={{ color: 'black', fontSize: '20px' }}>Description: </span>{chefDescription}
                         </Card.Text>
-                            <Card.Text className='ms-3 my-3 fw-semibold text-secondary'>
-                                <span className='' style={{color:'black' , fontSize: '20px'}}>Special On: </span>{cuisineSpecialty}
-                            </Card.Text>
                         <Card.Text className='ms-3 my-3 fw-semibold text-secondary'>
-                            <span className='' style={{color:'black' , fontSize: '20px'}}>Experience: </span>{yearsOfExperience} Years Of Work Experience
+                            <span className='' style={{ color: 'black', fontSize: '20px' }}>Special On: </span>{cuisineSpecialty}
+                        </Card.Text>
+                        <Card.Text className='ms-3 my-3 fw-semibold text-secondary'>
+                            <span className='' style={{ color: 'black', fontSize: '20px' }}>Experience: </span>{yearsOfExperience} Years Of Work Experience
                         </Card.Text>
                         <div className='recipe-container px-3'>
-                            {chefRecipes.map((recipe,idx) => <ChefRecipe key={idx} recipe={recipe}></ChefRecipe>)}
+                            {chefRecipes.map((recipe, idx) => <ChefRecipe key={idx} recipe={recipe}></ChefRecipe>)}
                         </div>
                     </Card.Body>
                 </Card>

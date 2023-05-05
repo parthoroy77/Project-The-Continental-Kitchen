@@ -4,23 +4,22 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { FaArrowRight } from 'react-icons/fa';
 import LazyLoad from 'react-lazyload';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../providers/AuthProvider';
 
 
 const Recipe = ({ chef }) => {
-    
+
     const { chefName, id, chefPicture, chefDescription, cuisineSpecialty, yearsOfExperience, numberOfRecipes, likes } = chef;
     return (
         <div>
             <Card >
-                <LazyLoad height={200}>
+                <LazyLoad height={300}>
                     <Card.Img variant="top" src={chefPicture} />
                 </LazyLoad>
                 <Card.Body>
                     <Card.Title className='fs-4 fw-bold'>{chefName}</Card.Title>
                     <hr />
                     <Card.Text className='text-secondary fw-semibold'>
-                        {chefDescription.slice(0,150)}......
+                        {chefDescription.slice(0, 150)}......
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush ">

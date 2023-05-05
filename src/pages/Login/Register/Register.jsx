@@ -36,8 +36,8 @@ const Register = () => {
                 navigate('/login')
             })
             .catch(error => {
-            toast.error(error.message);
-        })
+                toast.error(error.message);
+            })
     }
     const handleShow = (e) => {
         if (e.target.checked) {

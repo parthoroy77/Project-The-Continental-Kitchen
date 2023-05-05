@@ -5,12 +5,15 @@ import Button from 'react-bootstrap/Button';
 import booking from '../../assets/banner/booking.jpg';
 import Form from 'react-bootstrap/Form';
 import './Reservation.css';
+import LazyLoad from 'react-lazyload';
 const Reservation = () => {
     return (
         <Container className='my-5'>
             <div className='text-center'>
                 <h3 className=' fw-bold'>Reserve Your Table</h3>
-                <img src={icon} width={60} alt="" />
+                <LazyLoad>
+                    <img src={icon} width={60} alt="" />
+                </LazyLoad>
                 <hr />
             </div>
             <div className='booking-container' id='reserve'>

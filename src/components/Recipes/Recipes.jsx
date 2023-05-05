@@ -5,6 +5,9 @@ import Recipe from '../Recipe/Recipe';
 import './Recipes.css'
 import { AuthContext } from '../../providers/AuthProvider';
 import { ClipLoader } from 'react-spinners';
+import LazyLoad from 'react-lazyload';
+
+
 const Recipes = ({ data }) => {
     const { loader } = useContext(AuthContext);
     if (loader) {
@@ -26,7 +29,9 @@ const Recipes = ({ data }) => {
         <Container className=' my-5'>
             <div className='text-center'>
                 <h3 className=' fw-bold'>Our Chef's</h3>
-                <img src={icon} width={40} alt="" />
+                <LazyLoad>
+                    <img src={icon} width={40} alt="" />
+                </LazyLoad>
                 <hr />
             </div>
             <div className='chef-container'>
