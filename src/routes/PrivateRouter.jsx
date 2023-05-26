@@ -21,7 +21,7 @@ const PrivateRouter = ({ children }) => {
         return children;
     }
     const location = useLocation()
-    return <Navigate to='/login' state={{ from: location }}></Navigate>
+    return <Navigate to='/login' replace state={{ from: location }}></Navigate>
 };
 
 export default PrivateRouter;
